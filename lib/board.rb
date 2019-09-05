@@ -2,7 +2,14 @@
 # frozen_string_literal: true
 
 class Board
-  def display_board
+  include UserInterface
+  attr_accessor :board
+
+  def initialize
+    @board = Array.new(9)
+  end
+
+  def display_init_board
     row = [
       '   ' \
         '|' \
@@ -18,6 +25,3 @@ class Board
     puts row
   end
 end
-
-board = Board.new
-board.display_board
