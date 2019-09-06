@@ -2,7 +2,7 @@
 
 module UserInterface
   def welcome
-    puts 'Welcome to Tic Tac Toe Game!'
+    puts 'Welcome to Tic Tac Toc Game!'
   end
 
   def turns
