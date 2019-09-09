@@ -1,6 +1,6 @@
 #!usr/bin/ruby
 # frozen_string_literal: true
 
-class Player
-
+def player
+  puts "Player"
 end
