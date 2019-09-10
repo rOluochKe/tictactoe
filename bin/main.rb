@@ -1,48 +1,20 @@
 #!usr/bin/ruby
 # frozen_string_literal: true
 
-class Board
+require "./lib/board"
+require "./lib/player"
+# require "./lib/play"
+
+class Main
   def initialize
-  @grid = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"]
-  ]
-
-  @top_row = "| | | |"
-  @mid_row = "| | | |"
-  @bot_row = "| | | |"
-
-  @instructions = ["|-|-|-|", "|-|-|-|", "|-|-|-|"]
-  end
-
-  def show
-    puts @top_row
-    puts @mid_row
-    puts @bot_row
-  end
-
-  def show_instructions
-    puts "Welcome to terminal tic tac toe!"
-    puts "The following are the move positions you are able to make:"
-    puts @instructions, ""
-  end
-
-  def check(a, b, player)
-    @grid[a][b] == player
-  end
-
-  def move(position, player)
-    puts "Pick a number to play"
-  end
-
-  def win(player)
-    puts "Player wins!"
+    board = Board.new
+    player = Player.new
+    # play = Play.new
   end
 end
 
 #run game
-ttt = Board.new
+ttt = Main.new
 player = ["x", "y"]
 
 ttt.show_instructions
