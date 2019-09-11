@@ -1,5 +1,4 @@
-#!usr/bin/ruby
-# frozen_string_literal: true
+# rubocop: disable Style/FrozenStringLiteralComment, Lint/MissingCopEnableDirective
 
 module Board
   def show

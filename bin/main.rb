@@ -1,5 +1,5 @@
 #!usr/bin/ruby
-# frozen_string_literal: true
+#rubocop: disable Style/FrozenStringLiteralComment, Lint/MissingCopEnableDirective
 
 require './lib/board'
 require './lib/player'

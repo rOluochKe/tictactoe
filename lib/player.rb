@@ -1,11 +1,13 @@
-#!usr/bin/ruby
-# frozen_string_literal: true
+# rubocop: disable Style/FrozenStringLiteralComment, Lint/MissingCopEnableDirective
 
 module Player
+  # rubocop: disable Naming/UncommunicativeMethodParamName
   def check(a, b, player)
     @grid[a][b] == player
   end
+  # rubocop: enable Naming/UncommunicativeMethodParamName
 
+  # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   def move(position, player)
     case position
     when 'tl'
