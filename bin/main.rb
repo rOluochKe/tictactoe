@@ -1,8 +1,8 @@
 #!usr/bin/ruby
 #rubocop: disable Style/FrozenStringLiteralComment, Lint/MissingCopEnableDirective
 
-require './lib/board'
-require './lib/player'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
 
 class Main
   include Board
