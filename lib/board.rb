@@ -3,17 +3,17 @@
 
 class Board 
   def initialize
-  @grid = [
-    ["tl", "tc", "tr"],
-    ["ml", "mc", "mr"],
-    ["bl", "bc", "br"]
-  ]
+    @grid = [
+      ["tl", "tc", "tr"],
+      ["ml", "mc", "mr"],
+      ["bl", "bc", "br"]
+    ]
 
-  @top_row = "| | | |"
-  @mid_row = "| | | |"
-  @bot_row = "| | | |"
+    @top_row = "| | | |"
+    @mid_row = "| | | |"
+    @bot_row = "| | | |"
 
-  @instructions = ["|tl|tc|tr|", "|ml|mc|mr|", "|bl|bc|br|"]
+    @instructions = ["|tl|tc|tr|", "|ml|mc|mr|", "|bl|bc|br|"]
   end
 
   def show
@@ -28,3 +28,5 @@ class Board
     puts @instructions, ""
   end
 end
+
+# board = Board.new

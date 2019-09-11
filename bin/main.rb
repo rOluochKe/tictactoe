@@ -3,15 +3,6 @@
 
 require "./lib/board"
 require "./lib/player"
-# require "./lib/play"
-
-class Main
-  def initialize
-    board = Board.new
-    player = Player.new
-    # play = Play.new
-  end
-end
 
 #run game
 ttt = Main.new

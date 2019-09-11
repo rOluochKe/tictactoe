@@ -2,6 +2,10 @@
 # frozen_string_literal: true
 
 class Player
+  def initialize
+    
+  end
+
   def check(a, b, player)
     @grid[a][b] == player
   end
