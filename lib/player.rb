@@ -1,38 +1,37 @@
 #!usr/bin/ruby
-# frozen_string_literal: true
 
-class Player
+module Player
   def check(a, b, player)
     @grid[a][b] == player
   end
 
   def move(position, player)
     case position
-    when "tl"
+    when 'tl'
       @grid[0][0] = player
       @top_row[1] = player
-    when "tc"
+    when 'tc'
       @grid[0][1] = player
       @top_row[3] = player
-    when "tr"
+    when 'tr'
       @grid[0][2] = player
       @top_row[5] = player
-    when "ml"
+    when 'ml'
       @grid[1][0] = player
       @mid_row[1] = player
-    when "mc"
+    when 'mc'
       @grid[1][1] = player
       @mid_row[3] = player
-    when "mr"
+    when 'mr'
       @grid[1][2] = player
       @mid_row[5] = player
-    when "bl"
+    when 'bl'
       @grid[2][0] = player
       @bot_row[1] = player
-    when "bc"
+    when 'bc'
       @grid[2][1] = player
       @bot_row[3] = player
-    when "br"
+    when 'br'
       @grid[2][2] = player
       @bot_row[5] = player
     end
