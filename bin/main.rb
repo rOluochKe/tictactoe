@@ -27,14 +27,16 @@ class Main
 
     @instructions = %w[|tl|tc|tr| |ml|mc|mr| |bl|bc|br|]
   end
+  def createplayers
+    @player = %w[x y]
+  end
 end
 
 # run game
 ttt = Main.new
-player = %w[x y]
+player = ttt.createplayers
 
 ttt.show_instructions
-
 loop do
   puts "It's Player #{player[0]}'s turn."
   input = gets.chomp
