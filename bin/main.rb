@@ -18,7 +18,7 @@ class Main
   end
 end
 
-#run game
+# run game
 ttt = Main.new
 player = %w[x y]
 
