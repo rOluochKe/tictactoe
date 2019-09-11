@@ -1,12 +1,26 @@
 #!usr/bin/ruby
 # frozen_string_literal: true
 
-require "./lib/board"
-require "./lib/player"
+require './lib/board'
+require './lib/player'
+
+class Main
+  include Board
+  include Player
+  def initialize
+    @grid = [%w[tl tc tr], %w[ml mc mr], %w[bl bc br]]
+
+    @top_row = '| | | |'
+    @mid_row = '| | | |'
+    @bot_row = '| | | |'
+
+    @instructions = %w[|tl|tc|tr| |ml|mc|mr| |bl|bc|br|]
+  end
+end
 
 #run game
 ttt = Main.new
-player = ["x", "y"]
+player = %w[x y]
 
 ttt.show_instructions
 
