@@ -1,13 +1,10 @@
-# rubocop: disable Style/FrozenStringLiteralComment, Lint/MissingCopEnableDirective
+# frozen_string_literal: true
 
 module Player
-  # rubocop: disable Naming/UncommunicativeMethodParamName
-  def check(a, b, player)
-    @grid[a][b] == player
+  def check(movea, moveb, player)
+    @grid[movea][moveb] == player
   end
-  # rubocop: enable Naming/UncommunicativeMethodParamName
 
-  # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   def move(position, player)
     case position
     when 'tl'
