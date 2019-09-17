@@ -14,31 +14,27 @@ class Game
   end
 
   def start
+    puts '\n'
     puts 'TIC TAC TOE'
     @board.draw_grid
     puts '-----------'
     puts 'Player One'
     @player_one.choose_name
-    @player_two.choose_marker
+    @player_one.choose_marker
     puts '-----------'
     puts 'Player Two'
     @player_two.choose_name
-    if @player_one.marker = 'x'
-      @player_two.marker = 'o'
-    else
-      @player_two.marker = 'x'
-    end
+    @player_two.marker = @player_one.marker == 'x' ? 'o' : 'x'
   end
 
   def play
-    while true
+    loop do
       @board.draw_grid
       puts '-----------'
       puts "#{current_player.name}'s turn"
       puts '-----------'
       ask_move
       check_input
-      check_position_free
       make_move
       if @board.finished
         game_over
@@ -65,7 +61,6 @@ class Game
   end
 
   def check_position_free
-    puts @board.position_free?(@input_move)
     if @board.position_free?(@input_move)
       @input_move
     else

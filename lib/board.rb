@@ -11,26 +11,45 @@ class Board
 
   def mark_position(position, mark)
     case position
+    when 1..3
+      mark_position_top(position, mark)
+    when 4..6
+      mark_position_middle(position, mark)
+    when 7..9
+      mark_position_bottom(position, mark)
+    end
+  end
+
+  def mark_position_top(position, mark)
+    case position
     when 1
       @grid[0][0] = mark
     when 2
       @grid[0][1] = mark
     when 3
       @grid[0][2] = mark
+    end
+  end
+
+  def mark_position_middle(position, mark)
+    case position
     when 4
       @grid[1][0] = mark
     when 5
       @grid[1][1] = mark
     when 6
       @grid[1][2] = mark
+    end
+  end
+
+  def mark_position_bottom(position, mark)
+    case position
     when 7
       @grid[2][0] = mark
     when 8
       @grid[2][1] = mark
     when 9
       @grid[2][2] = mark
-    else
-      mark_position gets.chomp, mark
     end
   end
 
@@ -41,6 +60,7 @@ class Board
   def finished
     return :winner if winner?
     return :draw if draw?
+
     false
   end
 

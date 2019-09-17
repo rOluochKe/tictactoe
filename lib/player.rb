@@ -10,12 +10,12 @@ class Player
   end
 
   def choose_marker
-    puts "Xs or Os? [options: x / o]"
+    puts 'Xs or Os? [options: x / o]'
     self.marker = gets.chomp.downcase
     validate_marker
   end
 
   def validate_marker
-    self.choose_marker if self.marker != 'x' && self.marker != 'o'
+    choose_marker if marker != 'x' && marker != 'o'
   end
 end
