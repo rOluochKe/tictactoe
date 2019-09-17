@@ -5,7 +5,7 @@ require_relative './board'
 
 class Game
   attr_reader :current_player, :other_player
-  def initialize player_one, player_two, board = Board.new
+  def initialize(player_one, player_two, board = Board.new)
     @player_one = player_one
     @player_two = player_two
     @board = board
@@ -37,6 +37,8 @@ class Game
       puts "#{current_player.name}'s turn"
       puts '-----------'
       ask_move
+      check_input
+      check_position_free
       make_move
       if @board.finished
         game_over
@@ -49,16 +51,36 @@ class Game
   end
 
   def ask_move
-    puts "Choose a number between 1 and 9 to mark a position"
+    puts 'Choose a number between 1 and 9 to mark a position'
   end
 
-  def make_move 
-    @board.mark_position gets.chomp, current_player.marker
+  def check_input
+    loop do
+      @input_move = gets.chomp.to_i
+
+      return @input_move if @input_move >= 1 && @input_move <= 9
+
+      puts 'Wrong input - Enter number between 1 and 9'
+    end
+  end
+
+  def check_position_free
+    puts @board.position_free?(@input_move)
+    if @board.position_free?(@input_move)
+      @input_move
+    else
+      puts 'Position Taked - Enter a different number between 1 and 9'
+      check_input
+    end
+  end
+
+  def make_move
+    @board.mark_position @input_move, current_player.marker
   end
 
   def game_over
     puts "#{current_player.name} is the winner!" if @board.finished == :winner
-    puts "Draw!" if @board.finished == :draw
+    puts 'Draw!' if @board.finished == :draw
   end
 
   def switch_players
