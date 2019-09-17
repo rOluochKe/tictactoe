@@ -55,6 +55,8 @@ class Board
 
   def position_free?(position)
     return true if position == '-'
+
+    false
   end
 
   def finished

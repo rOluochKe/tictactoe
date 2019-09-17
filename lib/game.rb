@@ -53,7 +53,6 @@ class Game
   def check_input
     loop do
       @input_move = gets.chomp.to_i
-
       return @input_move if @input_move >= 1 && @input_move <= 9
 
       puts 'Wrong input - Enter number between 1 and 9'
