@@ -13,43 +13,6 @@ class Game
     @other_player = @player_two
   end
 
-  def start
-    puts '\n'
-    puts 'TIC TAC TOE'
-    @board.draw_grid
-    puts '-----------'
-    puts 'Player One'
-    @player_one.choose_name
-    @player_one.choose_marker
-    puts '-----------'
-    puts 'Player Two'
-    @player_two.choose_name
-    @player_two.marker = @player_one.marker == 'x' ? 'o' : 'x'
-  end
-
-  def play
-    loop do
-      @board.draw_grid
-      puts '-----------'
-      puts "#{current_player.name}'s turn"
-      puts '-----------'
-      ask_move
-      check_input
-      make_move
-      if @board.finished
-        game_over
-        @board.draw_grid
-        return false
-      else
-        switch_players
-      end
-    end
-  end
-
-  def ask_move
-    puts 'Choose a number between 1 and 9 to mark a position'
-  end
-
   def check_input
     loop do
       @input_move = gets.chomp.to_i
@@ -70,11 +33,6 @@ class Game
 
   def make_move
     @board.mark_position @input_move, current_player.marker
-  end
-
-  def game_over
-    puts "#{current_player.name} is the winner!" if @board.finished == :winner
-    puts 'Draw!' if @board.finished == :draw
   end
 
   def switch_players
