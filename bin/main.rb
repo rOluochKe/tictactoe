@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/game'
-class Playgame
+class PlayGame
   def self.start
     @board = Board.new
     @player_one = Player.new
@@ -52,4 +52,4 @@ class Playgame
   end
 end
 
-Playgame.start
+PlayGame.start
