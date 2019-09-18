@@ -1,59 +1,55 @@
-#!usr/bin/ruby
 # frozen_string_literal: true
 
-class Board
-  def initialize
-  @grid = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"]
-  ]
+require_relative '../lib/game'
+class Playgame
+  def self.start
+    @board = Board.new
+    @player_one = Player.new
+    @player_two = Player.new
+    @game = Game.new(@player_one, @player_two, @board)
+    @current_player = @player_one
+    @other_player = @player_two
 
-  @top_row = "| | | |"
-  @mid_row = "| | | |"
-  @bot_row = "| | | |"
+    puts "\n"
+    puts 'TIC TAC TOE'
 
-  @instructions = ["|-|-|-|", "|-|-|-|", "|-|-|-|"]
+    # Start the game
+    @board.draw_grid
+    puts '-----------'
+    puts 'Player One'
+    puts "What's your name?"
+    @player_one.choose_name
+    puts 'Xs or Os? [options: x / o]'
+    @player_one.choose_marker
+    puts '-----------'
+    puts 'Player Two'
+    @player_two.choose_name
+    @player_two.marker = @player_one.marker == 'x' ? 'o' : 'x'
+
+    # Play the game
+
+    loop do
+      @board.draw_grid
+      puts '-----------'
+      puts "#{@current_player.name}'s turn"
+      puts '-----------'
+      puts 'Choose a number between 1 and 9 to mark a position'
+      @game.check_input
+      @game.make_move
+      if @board.finished
+        self.game_over
+        @board.draw_grid
+        return false
+      else
+        @game.switch_players
+      end
+    end
   end
 
-  def show
-    puts @top_row
-    puts @mid_row
-    puts @bot_row
-  end
-
-  def show_instructions
-    puts "Welcome to terminal tic tac toe!"
-    puts "The following are the move positions you are able to make:"
-    puts @instructions, ""
-  end
-
-  def check(a, b, player)
-    @grid[a][b] == player
-  end
-
-  def move(position, player)
-    puts "Pick a number to play"
-  end
-
-  def win(player)
-    puts "Player wins!"
+  def self.game_over
+    puts "#{@current_player.name} is the winner!" if @board.finished == :winner
+    puts 'Draw!' if @board.finished == :draw
   end
 end
 
-#run game
-ttt = Board.new
-player = ["x", "y"]
-
-ttt.show_instructions
-
-loop do
-  puts "It's Player #{player[0]}'s turn."
-  input = gets.chomp
-  ttt.move input, player[0]
-  ttt.show
-  break if ttt.win player[0]
-  player[0], player[1] = player[1], player[0]
-end
-
-puts "Congrats Player #{player[0]}, you have won!"
+Playgame.start
