@@ -1,28 +1,57 @@
-# TIC TAC TOE
+## TIC TAC TOE
 This is the third project of the Main Ruby curriculum at Microverse. The goal is to Build a tic-tac-toe game on the command line where two human players can play against each other and the board is displayed in between turns.
+* [Authors](#authors)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Instructions](#instructions)
+* [Winnning Patterns](#winning-patterns)
 
-# Authors
-## Raymond Oluoch https://github.com/rOluochKe/
-## Andres F. Moya https://github.com/AndresFMoya/
+## Authors
+This project was contibuted by
+* Raymond Oluoch https://github.com/rOluochKe/
+* Andres F. Moya https://github.com/AndresFMoya/
+	
+## Technologies
+Project is created with:
+* Ruby version: 2.5.5
+	
+## Setup
+To run this project, install it locally using npm:
 
-# 1. Usage Instructions
-### clone the repo: git clone https://github.com/rOluochKe/tictactoe.git
-### change directory: cd tictactoe
-### run the program: ruby 'bin/main.rb'
-### enjoy play the game
+```
+$ clone the repo: git clone https://github.com/rOluochKe/tictactoe.git
+$ change directory: cd tictactoe
+$ run the program: ruby 'bin/main.rb'
+```
+## Instructions
+Upon running the game in your commandline
+* Player One: Enter your name i.e John
+* Player One: choose Mark i.e X or O
+* Player Two: Enter your name i.e Jane
+* Player One Turns: Enter a number between 1 and 9
+* Player Two: Enter a number between 1 and 9
+* Continue playing until any player wins or is a draw
 
-# 2. Rules 
-### The game accepts only integers from 1 to 9. The player who succeeds in placing three of their marks in a row wins the game, or it's draw.
+## Winnning Patterns
+Below are some of the wining patterns, one can win if if his/her corresponding marks are 
+* Horizontal 
 
-# 3. Winnings
-### Diagonals [x,x,o]
-### Diagonals [o,x,o]
-### Diagonals [o,x,x]
+  ```
+  [x,x,x]
+  [o,x,o]
+  [x,o,x]
+  ```
+* Vertical
 
-### Horizontal [o,o,o]
-### Horizontal [x,o,x]
-### Horizontal [o,x,o]
+  ```
+  [x,o,x]
+  [x,o,x]
+  [x,o,x]
+  ```
+* Diagonal 
 
-### Vertical [x,o,x]
-### Vertical [x,x,o]
-### Vertical [x,o,x]
+  ```
+  [o,x,x]
+  [x,o,x]
+  [x,o,o]
+  ```
