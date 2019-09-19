@@ -16,4 +16,22 @@ RSpec.describe Board do
       expect(board.mark_position(1, 'X')).to eql('X')
     end
   end
+
+  describe '#winner?' do
+    context 'when same values are on horizontal lines' do
+      it 'returns true for first horizontal line' do
+        @grid = board.mark_position(1, 'X')
+        @grid = board.mark_position(2, 'X')
+        @grid = board.mark_position(3, 'X')
+        expect(board.winner?).to eql(true)
+      end
+
+      it 'returns true for first horizontal line' do
+        @grid = board.mark_position(4, 'X')
+        @grid = board.mark_position(5, 'X')
+        @grid = board.mark_position(6, 'X')
+        expect(board.winner?).to eql(true)
+      end
+    end
+  end
 end

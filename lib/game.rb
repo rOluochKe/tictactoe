@@ -5,7 +5,11 @@ require_relative './board'
 
 class Game
   attr_reader :current_player, :other_player
-  def initialize(player_one, player_two, board = Board.new)
+  def initialize(
+    player_one = 'Nameless player',
+    player_two = 'Nameless Player',
+    board = Board.new
+  )
     @player_one = player_one
     @player_two = player_two
     @board = board
