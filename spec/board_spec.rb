@@ -49,14 +49,14 @@ RSpec.describe Board do
         expect(board.winner?).to eql(false)
       end
 
-      it 'returns true for second horizontal line' do
+      it 'returns false for second horizontal line' do
         board.mark_position(4, 'X')
         board.mark_position(5, 'X')
         board.mark_position(6, 'O')
         expect(board.winner?).to eql(false)
       end
 
-      it 'returns false if no horizontal line is filled with same value' do
+      it 'returns false for third horizontal line' do
         board.mark_position(7, 'X')
         board.mark_position(8, 'X')
         board.mark_position(9, 'O')
