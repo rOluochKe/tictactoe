@@ -39,6 +39,22 @@ RSpec.describe Board do
         board.mark_position(9, 'X')
         expect(board.winner?).to eql(true)
       end
+    end
+
+    context 'when not same values are on horizontal lines' do
+      it 'returns false for first horizontal line' do
+        board.mark_position(1, 'X')
+        board.mark_position(2, 'X')
+        board.mark_position(3, 'O')
+        expect(board.winner?).to eql(false)
+      end
+
+      it 'returns true for second horizontal line' do
+        board.mark_position(4, 'X')
+        board.mark_position(5, 'X')
+        board.mark_position(6, 'O')
+        expect(board.winner?).to eql(false)
+      end
 
       it 'returns false if no horizontal line is filled with same value' do
         board.mark_position(7, 'X')
@@ -69,10 +85,26 @@ RSpec.describe Board do
         board.mark_position(9, 'X')
         expect(board.winner?).to eql(true)
       end
+    end
 
-      it 'returns false if no vertical line is filled with same value' do
-        board.mark_position(7, 'X')
-        board.mark_position(8, 'X')
+    context 'when not same values are on vertical lines' do
+      it 'returns false for first vertical line' do
+        board.mark_position(1, 'X')
+        board.mark_position(4, 'X')
+        board.mark_position(7, 'O')
+        expect(board.winner?).to eql(false)
+      end
+
+      it 'returns false for second vertical line' do
+        board.mark_position(2, 'X')
+        board.mark_position(5, 'X')
+        board.mark_position(8, 'O')
+        expect(board.winner?).to eql(false)
+      end
+
+      it 'returns false for third vertical line' do
+        board.mark_position(3, 'X')
+        board.mark_position(6, 'X')
         board.mark_position(9, 'O')
         expect(board.winner?).to eql(false)
       end
@@ -92,11 +124,20 @@ RSpec.describe Board do
         board.mark_position(7, 'X')
         expect(board.winner?).to eql(true)
       end
+    end
 
-      it 'returns false if no diagonal line is filled with same value' do
-        board.mark_position(7, 'X')
-        board.mark_position(8, 'X')
+    context 'when not same values are on diagonal lines' do
+      it 'returns false for first diagonal line' do
+        board.mark_position(1, 'X')
+        board.mark_position(5, 'X')
         board.mark_position(9, 'O')
+        expect(board.winner?).to eql(false)
+      end
+
+      it 'returns false for second diagonal line' do
+        board.mark_position(3, 'X')
+        board.mark_position(5, 'X')
+        board.mark_position(7, 'O')
         expect(board.winner?).to eql(false)
       end
     end
