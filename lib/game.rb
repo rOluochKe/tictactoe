@@ -22,20 +22,12 @@ class Game
     end
   end
 
-  def check_position_free
-    if @board.position_free?(@input_move)
-      @input_move
-    else
-      puts 'Position Taked - Enter a different number between 1 and 9'
-      check_input
-    end
-  end
-
   def make_move
     @board.mark_position @input_move, current_player.marker
   end
 
   def switch_players
     @current_player, @other_player = @other_player, @current_player
+    @current_player
   end
 end

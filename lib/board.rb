@@ -53,12 +53,6 @@ class Board
     end
   end
 
-  def position_free?(position)
-    return true if position == '-'
-
-    false
-  end
-
   def finished
     return :winner if winner?
     return :draw if draw?
